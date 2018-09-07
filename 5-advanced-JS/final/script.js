@@ -329,7 +329,7 @@ c) correct answer (I would use a number for this)
 */
 
 
-/*
+
 (function() {
     function Question(question, answers, correct) {
         this.question = question;
@@ -350,7 +350,7 @@ c) correct answer (I would use a number for this)
             console.log('Correct answer!');
 
         } else {
-            console.log('Wrong answer. Try again :)')
+            console.log('Wrong answer. Try again :)');
         }
     }
 
@@ -373,10 +373,9 @@ c) correct answer (I would use a number for this)
     questions[n].displayQuestion();
 
     var answer = parseInt(prompt('Please select the correct answer.'));
-
     questions[n].checkAnswer(answer);
 })();
-*/
+
 
 
 
