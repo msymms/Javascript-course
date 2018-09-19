@@ -4,11 +4,14 @@
   "description": "forkify project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "Webpack --mode development",
+    "build": "Webpack --mode production"
   },
   "author": "Mark Symms",
   "license": "ISC",
-  "dependencies": {
-    "webpack": "^4.19.1"
-  }
+  "devDependencies": {
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {}
 }
