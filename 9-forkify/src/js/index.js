@@ -23,11 +23,11 @@ const controlSearch = async () => {
         await state.search.getResults();
 
         // render results in UI
-
-    }
+        console.log(state.search.result);
+     }
 };
 
-document.querySelector('search').addEventListener('submit', evt => {
+document.querySelector('.search').addEventListener('submit', evt => {
     evt.preventDefault();
     controlSearch();
 });
