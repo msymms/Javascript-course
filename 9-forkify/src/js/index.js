@@ -4,7 +4,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
 import * as searchView from './views/searchView';
 
 
-/*  Global State of teh App
+/*  Global State of the App
 *   - Search object
 *   - Current recipe object
 *   - Shopping list object
@@ -35,4 +35,9 @@ const controlSearch = async () => {
 elements.searchForm.addEventListener('submit', evt => {
     evt.preventDefault();
     controlSearch();
+});
+
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    console.log(btn);
 });
