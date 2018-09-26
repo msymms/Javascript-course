@@ -6,7 +6,18 @@ export const clearInput = () => {
 };
 export const clearResults = () => {
     elements.searchResList.innerHTML = '';
+    elements.searchResPages.innerHTML = '';
 };
+
+//type: 'prev' or 'next'
+const createButton = (page, type) => `
+    <button class="btn-inline results__btn--${type}"  data-goto="${type === 'prev' ? page -1 : page + 1}">
+        <span>Page ${type === 'prev' ? page -1 : page + 1}</span>
+        <svg class="search__icon">
+            <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
+        </svg>
+    </button>
+`;
 
 /*
  'Pasta with tomato and spinach'
@@ -47,16 +58,6 @@ const renderRecipe = recipe => {
     elements.searchResList.insertAdjacentHTML('beforeend', markup);
 };
 
-//type: 'prev' or 'next'
-const createButton = (page, type) => `
-    <button class="btn-inline results__btn--${type}"  data-goto="${type === 'prev' ? page -1 : page + 1}">
-        <svg class="search__icon">
-            <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
-        </svg>
-        <span>Page ${type === 'prev' ? page -1 : page + 1}</span>
-    </button>
-`;
-
 const renderButtons = (page, numResults, resPerPage) => {
     const pages = Math.ceil(numResults / resPerPage);
 
@@ -78,7 +79,7 @@ const renderButtons = (page, numResults, resPerPage) => {
     elements.searchResPages.insertAdjacentHTML('afterbegin', button);
 };
 
-export const renderResult = (recipes, page = 2, resPerPage = 10) => {
+export const renderResult = (recipes, page = 1, resPerPage = 10) => {
     //render Results of current page
     const start = (page -1) * resPerPage;
     const end = page * resPerPage;
